@@ -1,0 +1,14 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "C-Store API",
+    "description": "Esta é a documentação da API do app C-Store",
+    "contact": {
+      "name": "Carlos Daniel Cabral",
+      "email": "dev.carlosdaniel@gmail.com"
+    }
+  },
+  "version": "1.0.0",
+  "paths": {
+  }
+}

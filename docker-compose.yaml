@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  database: 
+    image: mysql:8.0
+    container_name: c-store-database
+    restart: always
+    volumes:
+      - /app/database
+      - ./src/database/mysql/init:/docker-entrypoint-initdb.d/
+      - ./src/database/mysql/conf:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+  api:
+    build: .
+    container_name: c-store-api
+    depends_on:
+      - database
+    restart: always
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_HOST=database
+      - MYSQL_DATABASE=c-store
+      - MYSQL_PORT=3306
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/app/api
+      - /app/api/node_modules
