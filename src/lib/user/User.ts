@@ -1,3 +1,5 @@
+import UserJson from "./UserJson";
+
 abstract class User {
   public constructor(
     protected _id: string,
@@ -41,6 +43,8 @@ abstract class User {
   get deletedAt(): Date | undefined {
     return this._deletedAt;
   }
+
+  public abstract json(): UserJson
 }
 
 export default User;
