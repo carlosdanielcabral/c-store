@@ -1,13 +1,13 @@
 abstract class User {
   public constructor(
-    private _id: string,
-    private _name: string,
-    private _email: string,
-    private _password: string,
-    private _createdAt: Date,
-    private _deletedAt?: Date,
-    private _lastname?: string,
-    private _image?: string,
+    protected _id: string,
+    protected _name: string,
+    protected _email: string,
+    protected _password: string,
+    protected _createdAt: Date,
+    protected _deletedAt?: Date,
+    protected _lastname?: string,
+    protected _image?: string,
   ) {}
 
   get id(): string {
