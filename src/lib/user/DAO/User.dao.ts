@@ -3,10 +3,10 @@ import CreateUserDTO from "../DTO/CreateUser.dto";
 
 class UserDAO {
   public constructor(
-    private _connection: Connection = new Connection(),
+    protected _connection: Connection = new Connection(),
   ) {}
 
-  public create(user: CreateUserDTO): void {
+  public createUser(user: CreateUserDTO): void {
     const query = "INSERT INTO client (id, name, last_name, email, password, image) VALUES (?, ?, ?, ?, ?, ?, NOW())";
     const values = [user.id, user.name, user.lastname, user.email, user.password, user.image];
 
