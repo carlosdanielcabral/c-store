@@ -1,6 +1,6 @@
-import User from "./User";
+import User from "../User";
 
-class Admin extends User {
+class Saler extends User {
   public constructor(
     protected _id: string,
     protected _name: string,
@@ -20,4 +20,4 @@ class Admin extends User {
   }
 }
 
-export default Admin;
+export default Saler;

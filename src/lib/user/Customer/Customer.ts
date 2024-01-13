@@ -1,10 +1,9 @@
-import User from "./User";
+import User from "../User";
 
-class Saler extends User {
+class Customer extends User {
   public constructor(
     protected _id: string,
     protected _name: string,
-    protected _clientId: string,
     protected _email: string,
     protected _password: string,
     protected _createdAt: Date,
@@ -14,10 +13,6 @@ class Saler extends User {
   ) {
     super(_id, _name, _email, _password, _createdAt, _deletedAt, _lastname, _image);
   }
-
-  get clientId(): string {
-    return this._clientId;
-  }
 }
 
-export default Saler;
+export default Customer;
