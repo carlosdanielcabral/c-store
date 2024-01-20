@@ -20,7 +20,7 @@ class Saler extends User {
     return this._clientId;
   }
 
-  public fromFetch(fetch: Fetch): Saler {
+  public static fromFetch(fetch: Fetch): Saler {
     return new Saler(
       fetch.id,
       fetch.name,
