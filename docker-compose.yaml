@@ -25,6 +25,7 @@ services:
       - MYSQL_HOST=database
       - MYSQL_DATABASE=c-store
       - MYSQL_PORT=3306
+      - npm_config_cache=/home/node/app/.npm
     ports:
       - 3001:3001
     volumes:
