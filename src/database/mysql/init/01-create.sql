@@ -36,7 +36,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 DROP TABLE IF EXISTS `c-store`.`payment_method` ;
 
 CREATE TABLE IF NOT EXISTS `c-store`.`payment_method` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `thumbnail` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
@@ -94,10 +94,16 @@ DROP TABLE IF EXISTS `c-store`.`user_admin` ;
 
 CREATE TABLE IF NOT EXISTS `c-store`.`user_admin` (
   `id` CHAR(36) NOT NULL,
+  `client_id` CHAR(36) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_admin_id`
     FOREIGN KEY (`id`)
     REFERENCES `c-store`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+  CONSTRAINT `fk_user_saler_client_id`
+    FOREIGN KEY (`client_id`)
+    REFERENCES `c-store`.`client` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

@@ -1,7 +1,7 @@
-enum UserTypes {
+enum UserType {
   Admin = 'admin',
   Customer = 'customer',
   Saler = 'saler',
 }
 
-export default UserTypes;
+export default UserType;

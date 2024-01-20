@@ -1,4 +1,4 @@
-type UserJson = {
+export type Json = {
   id: string,
   name: string,
   email: string,
@@ -7,5 +7,3 @@ type UserJson = {
   image?: string,
   lastName?: string,
 }
-
-export default UserJson;

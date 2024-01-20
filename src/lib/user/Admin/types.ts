@@ -1,4 +1,6 @@
-type AdminFromDb = {
+import { Json as BaseJson } from '../types';
+
+export type Fetch = {
   id: string,
   client_id: string,
   name: string,
@@ -10,4 +12,6 @@ type AdminFromDb = {
   deleted_at: string,
 }
 
-export default AdminFromDb
+export type Json = {
+  clientId: string,
+} & BaseJson;

@@ -1,4 +1,4 @@
-import UserJson from "./UserJson";
+import { Json } from "./types";
 
 abstract class User {
   public constructor(
@@ -44,7 +44,7 @@ abstract class User {
     return this._deletedAt;
   }
 
-  public abstract json(): UserJson
+  public abstract json(): Json
 }
 
 export default User;
