@@ -13,6 +13,7 @@ class AuthService {
     const repository = this._factory.getRepository(data.type);
 
     const user = await repository.getByEmail(data.email);
+
     if (!user) throw new HttpError(HttpStatusCode.BadRequest, 'Invalid email or password');
 
     const validPassword = Hash.compare(data.password, user.password);
