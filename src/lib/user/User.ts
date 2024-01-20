@@ -1,4 +1,4 @@
-import { Json } from "./types";
+import { Fetch, Json } from "./types";
 
 abstract class User {
   public constructor(
@@ -45,6 +45,7 @@ abstract class User {
   }
 
   public abstract json(): Json
+  public abstract fromFetch(fetch: Fetch): User
 }
 
 export default User;

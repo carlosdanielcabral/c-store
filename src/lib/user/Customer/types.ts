@@ -1,12 +1,4 @@
-export type Json = {
-  id: string,
-  name: string,
-  email: string,
-  createdAt: string,
-  deletedAt: string,
-  image?: string,
-  lastName?: string,
-}
+import { Json as BaseJson } from '../types';
 
 export type Fetch = {
   id: string,
@@ -18,3 +10,6 @@ export type Fetch = {
   created_at: string,
   deleted_at: string,
 }
+
+export type Json = {
+} & BaseJson;

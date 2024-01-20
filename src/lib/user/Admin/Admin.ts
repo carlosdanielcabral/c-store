@@ -46,7 +46,6 @@ class Admin extends User {
       image: this.image,
     }
   }
-
 }
 
 export default Admin;
