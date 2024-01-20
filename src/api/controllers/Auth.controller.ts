@@ -1,25 +1,22 @@
-import Hash from "../../lib/Hash";
-import EmailPasswordDTO from "../../lib/auth/DTO/EmailPasswordDTO";
-import HttpError from "../../lib/http/HttpError";
+import { Request, Response } from "express";
 import HttpStatusCode from "../../lib/http/HttpStatusCode";
-import UserFactory from "../../lib/user/Factory/User.factory";
+import AuthService from "../services/Auth.service";
+import Token from "../../lib/auth/Token";
 
-class AuthService {
+class AuthController {
   public constructor(
-    private _factory: UserFactory = new UserFactory(),
+    private _service: AuthService = new AuthService(),
+    private _token: Token = new Token(),
   ) {}
 
-  public async login(data: EmailPasswordDTO) {
-    const repository = this._factory.getRepository(data.type);
+  public async login(request: Request, response: Response) {
+    const { dto } = request.body;
 
-    const user = await repository.getByEmail(data.email);
-    if (!user) throw new HttpError(HttpStatusCode.BadRequest, 'Invalid email or password');
+    const user = this._service.login(dto);
+    const token = this._token.generate(user);
 
-    const validPassword = Hash.compare(data.password, user.password);
-    if (!validPassword) throw new HttpError(HttpStatusCode.BadRequest, 'Invalid email or password');
-
-    return user.json;
+    return response.status(HttpStatusCode.Ok).json({ token });
   }
 }
 
-export default AuthService;
+export default AuthController;
