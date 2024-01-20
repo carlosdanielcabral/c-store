@@ -2,14 +2,14 @@ import 'express-async-errors';
 import express, { Express } from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
-import RouteFactory from './lib/factories/RouteFactory';
 import ErrorMiddleware from './api/middlewares/ErrorMiddleware';
 import swaggerDocument from '../swagger.json';
+import Route from './api/routes/Route';
 
 class App {
   private _app: Express;
 
-  public constructor(private _route = RouteFactory()) {
+  public constructor(private _router: Route = new Route()) {
     this._app = express();
 
     this._app.get('/', (req, res) => res.status(200).json({ online: true }));
@@ -25,7 +25,7 @@ class App {
     this._app.use(express.json());
     this._app.use(cors());
 
-    this._app.use('/', this._route.router);
+    this._app.use('/', this._router.router);
     this._app.use(
       '/api-docs',
       swaggerUi.serve,
