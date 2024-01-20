@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "prestart": "npm run build && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
+    "prestart": "npm install && npm run build && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
     "start": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "commit": "cz",
     "prepare": "husky install",
@@ -63,6 +63,7 @@
     }
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
