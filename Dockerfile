@@ -1,8 +1,8 @@
-FROM node:18.13.0-alpine
+FROM node:18-alpine
 WORKDIR /app/api
 COPY package*.json ./
 RUN npm install
-RUN chmod 777 node_modules
 COPY . .
+RUN chown -R node:node /app/api/node_modules
 ENTRYPOINT ["npm", "start"]
 EXPOSE 3001

@@ -37,7 +37,8 @@
         "argsIgnorePattern": "^_",
         "ignoreRestSiblings": true
       }
-    ]
+    ],
+    "max-len": 150
   },
   "settings": {
     "import/resolver": {
