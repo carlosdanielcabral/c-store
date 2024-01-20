@@ -20,8 +20,7 @@ class Admin extends User {
     return this._clientId;
   }
 
-  public static fromFetch(fetch: Fetch): Admin
-  {
+  public static fromFetch = (fetch: Fetch): Admin => {
     return new Admin(
       fetch.id,
       fetch.name,
@@ -35,7 +34,7 @@ class Admin extends User {
     );
   }
 
-  public json(): Json {
+  public json = (): Json => {
     return {
       id: this.id,
       clientId: this.clientId,

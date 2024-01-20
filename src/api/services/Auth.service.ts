@@ -9,7 +9,7 @@ class AuthService {
     private _factory: UserFactory = new UserFactory(),
   ) {}
 
-  public async login(data: EmailPasswordDTO) {
+  public login = async (data: EmailPasswordDTO) => {
     const repository = this._factory.getRepository(data.type);
 
     const user = await repository.getByEmail(data.email);

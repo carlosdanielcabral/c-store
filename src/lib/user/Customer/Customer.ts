@@ -15,7 +15,7 @@ class Customer extends User {
     super(_id, _name, _email, _password, _createdAt, _deletedAt, _lastname, _image);
   }
 
-  public static fromFetch(fetch: Fetch): Customer {
+  public static fromFetch = (fetch: Fetch): Customer => {
     return new Customer(
       fetch.id,
       fetch.name,
@@ -28,7 +28,7 @@ class Customer extends User {
     );
   }
 
-  public json(): Json {
+  public json = (): Json => {
     return {
       id: this.id,
       name: this.name,

@@ -20,7 +20,7 @@ class Saler extends User {
     return this._clientId;
   }
 
-  public static fromFetch(fetch: Fetch): Saler {
+  public static fromFetch = (fetch: Fetch): Saler => {
     return new Saler(
       fetch.id,
       fetch.name,
@@ -34,7 +34,7 @@ class Saler extends User {
     );
   }
 
-  public json(): Json {
+  public json = (): Json => {
     return {
       id: this.id,
       clientId: this.clientId,

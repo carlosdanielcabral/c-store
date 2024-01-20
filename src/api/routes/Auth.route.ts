@@ -16,7 +16,7 @@ class AuthRoute {
   }
 
   private config() {
-    this._router.post('/', this._middleware.auth, this._controller.login);
+    this._router.post('/', this._middleware.auth, this._middleware.createDTO, this._controller.login);
   }
 }
 

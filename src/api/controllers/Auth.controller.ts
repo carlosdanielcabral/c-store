@@ -9,7 +9,7 @@ class AuthController {
     private _token: Token = new Token(),
   ) {}
 
-  public async login(request: Request, response: Response) {
+  public login = (request: Request, response: Response) => {
     const { dto } = request.body;
 
     const user = this._service.login(dto);

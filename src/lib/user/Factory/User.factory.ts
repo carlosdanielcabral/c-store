@@ -3,8 +3,7 @@ import UserRepository from "../Repository/User.repository";
 import UserType from "../Enum/UserType";
 
 class UserFactory {
-  public getRepository(type: UserType): UserRepository
-  {
+  public getRepository = (type: UserType): UserRepository => {
     if (type === UserType.Admin)
       return new AdminRepository();
   }
