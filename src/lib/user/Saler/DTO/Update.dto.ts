@@ -1,9 +1,9 @@
-import { randomUUID } from "crypto";
-import CreateUserDTO from "../../DTO/CreateUser.dto";
+import UpdateUserDTO from "../../DTO/UpdateUser.dto";
 
-class CreateSalerDTO extends CreateUserDTO {
+class UpdateSalerDTO extends UpdateUserDTO {
   public constructor(
-    public id: string = randomUUID(),
+    public id: string,
+    public clientId: string,
     public name: string,
     public email: string,
     public password: string,
@@ -14,4 +14,4 @@ class CreateSalerDTO extends CreateUserDTO {
   }
 }
 
-export default CreateSalerDTO;
+export default UpdateSalerDTO;
