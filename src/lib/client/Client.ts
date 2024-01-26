@@ -1,3 +1,5 @@
+import { Fetch } from './types';
+
 class Client {
   public constructor(
     private _id: string,
@@ -25,6 +27,16 @@ class Client {
 
   get deletedAt(): Date | undefined {
     return this._deletedAt;
+  }
+
+  public static fromFetch(fetch: Fetch): Client {
+    return new Client(
+      fetch.id,
+      fetch.name,
+      fetch.cnpj,
+      new Date(fetch.created_at),
+      new Date(fetch.deleted_at),
+    );
   }
 }
 
