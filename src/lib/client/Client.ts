@@ -1,3 +1,5 @@
+import PaymentMethod from '../payment-method/PaymentMethod';
+import ClientPaymentMethodProxy from '../payment-method/Proxy/ClientPaymentMethod.proxy';
 import { Fetch } from './types';
 
 class Client {
@@ -7,6 +9,7 @@ class Client {
     private _cnpj: string,
     private _createdAt: Date,
     private _deletedAt?: Date,
+    private _paymentMethods?: ClientPaymentMethodProxy | Promise<PaymentMethod[]>,
   ) {}
 
   get id(): string {
@@ -29,6 +32,13 @@ class Client {
     return this._deletedAt;
   }
 
+  get paymentMethods(): PaymentMethod[] {
+    if (this._paymentMethods instanceof ClientPaymentMethodProxy)
+      this._paymentMethods = this._paymentMethods.realPaymentMethods();
+
+    return this.paymentMethods;
+  }
+
   public static fromFetch(fetch: Fetch): Client {
     return new Client(
       fetch.id,
@@ -36,6 +46,7 @@ class Client {
       fetch.cnpj,
       new Date(fetch.created_at),
       new Date(fetch.deleted_at),
+      new ClientPaymentMethodProxy(fetch.id),
     );
   }
 }
