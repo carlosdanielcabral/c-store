@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import HttpStatusCode from "../../lib/http/HttpStatusCode";
-import AuthService from "../services/Auth.service";
-import Token from "../../lib/auth/Token";
+import { Request, Response } from 'express';
+import HttpStatusCode from '../../lib/http/HttpStatusCode';
+import AuthService from '../services/Auth.service';
+import Token from '../../lib/auth/Token';
 
 class AuthController {
   public constructor(
@@ -16,7 +16,7 @@ class AuthController {
     const token = this._token.generate(user);
 
     return response.status(HttpStatusCode.Ok).json({ token });
-  }
+  };
 }
 
 export default AuthController;

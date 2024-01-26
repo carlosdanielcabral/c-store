@@ -1,4 +1,4 @@
-import UserTypes from "../../user/Enum/UserType";
+import UserTypes from '../../user/Enum/UserType';
 
 class EmailPasswordDTO {
   public constructor(

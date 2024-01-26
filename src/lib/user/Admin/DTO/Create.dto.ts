@@ -1,5 +1,5 @@
-import { randomUUID } from "crypto";
-import CreateUserDTO from "../../DTO/CreateUser.dto";
+import { randomUUID } from 'crypto';
+import CreateUserDTO from '../../DTO/CreateUser.dto';
 
 class CreateAdminDTO extends CreateUserDTO {
   public constructor(

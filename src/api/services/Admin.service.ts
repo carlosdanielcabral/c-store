@@ -1,5 +1,5 @@
-import CreateAdminDTO from "../../lib/user/Admin/DTO/Create.dto";
-import AdminRepository from "../../lib/user/Admin/Repository/Admin.repository";
+import CreateAdminDTO from '../../lib/user/Admin/DTO/Create.dto';
+import AdminRepository from '../../lib/user/Admin/Repository/Admin.repository';
 
 class AdminService {
   public constructor(
@@ -10,7 +10,7 @@ class AdminService {
     const user = await this._repository.create(dto);
 
     return user.json();
-  }
+  };
 }
 
 export default AdminService;

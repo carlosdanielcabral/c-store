@@ -1,4 +1,4 @@
-import UpdateUserDTO from "../../DTO/UpdateUser.dto";
+import UpdateUserDTO from '../../DTO/UpdateUser.dto';
 
 class UpdateCustomerDTO extends UpdateUserDTO {
   public constructor(

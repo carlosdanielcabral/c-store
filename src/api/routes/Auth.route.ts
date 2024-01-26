@@ -1,6 +1,6 @@
-import { Router } from "express";
-import AuthController from "../controllers/Auth.controller";
-import AuthMiddleware from "../middlewares/Auth.middleware";
+import { Router } from 'express';
+import AuthController from '../controllers/Auth.controller';
+import AuthMiddleware from '../middlewares/Auth.middleware';
 
 class AuthRoute {
   public constructor(
@@ -11,13 +11,18 @@ class AuthRoute {
     this.config();
   }
 
-  get router(): Router  {
-    return this._router
+  get router(): Router {
+    return this._router;
   }
 
   private config() {
-    this._router.post('/', this._middleware.auth, this._middleware.createDTO, this._controller.login);
+    this._router.post(
+      '/',
+      this._middleware.auth,
+      this._middleware.createDTO,
+      this._controller.login,
+    );
   }
 }
 
-export default AuthRoute
+export default AuthRoute;

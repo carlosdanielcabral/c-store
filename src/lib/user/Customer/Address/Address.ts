@@ -1,4 +1,4 @@
-import { Fetch, Json } from "./types";
+import { Fetch, Json } from './types';
 
 class UserCustomerAddress {
   public constructor(
@@ -49,7 +49,7 @@ class UserCustomerAddress {
       new Date(fetch.created_at),
       new Date(fetch.deleted_at),
     );
-  }
+  };
 
   public json = (): Json => {
     return {
@@ -61,7 +61,7 @@ class UserCustomerAddress {
       createdAt: this.createdAt.toISOString(),
       deletedAt: this.deletedAt?.toISOString(),
     };
-  }
+  };
 }
 
 export default UserCustomerAddress;

@@ -1,5 +1,5 @@
-import User from "../User";
-import { Fetch, Json } from "./types";
+import User from '../User';
+import { Fetch, Json } from './types';
 
 class Admin extends User {
   public constructor(
@@ -13,7 +13,16 @@ class Admin extends User {
     protected _lastname?: string,
     protected _image?: string,
   ) {
-    super(_id, _name, _email, _password, _createdAt, _deletedAt, _lastname, _image);
+    super(
+      _id,
+      _name,
+      _email,
+      _password,
+      _createdAt,
+      _deletedAt,
+      _lastname,
+      _image,
+    );
   }
 
   get clientId(): string {
@@ -30,9 +39,9 @@ class Admin extends User {
       new Date(fetch.created_at),
       new Date(fetch.deleted_at),
       fetch.last_name,
-      fetch.image
+      fetch.image,
     );
-  }
+  };
 
   public json = (): Json => {
     return {
@@ -43,8 +52,8 @@ class Admin extends User {
       createdAt: this.createdAt.toISOString(),
       deletedAt: this.createdAt.toISOString(),
       image: this.image,
-    }
-  }
+    };
+  };
 }
 
 export default Admin;

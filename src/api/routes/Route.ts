@@ -1,6 +1,6 @@
 import 'express-async-errors';
-import AuthRoute from './Auth.route';
 import { Router } from 'express';
+import AuthRoute from './Auth.route';
 
 class Route {
   public constructor(
