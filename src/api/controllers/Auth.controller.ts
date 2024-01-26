@@ -9,10 +9,10 @@ class AuthController {
     private _token: Token = new Token(),
   ) {}
 
-  public login = (request: Request, response: Response) => {
+  public login = async (request: Request, response: Response) => {
     const { dto } = request.body;
 
-    const user = this._service.login(dto);
+    const user = await this._service.login(dto);
     const token = this._token.generate(user);
 
     return response.status(HttpStatusCode.Ok).json({ token });

@@ -19,7 +19,7 @@ class AuthService {
     const validPassword = Hash.compare(data.password, user.password);
     if (!validPassword) throw new HttpError(HttpStatusCode.BadRequest, 'Invalid email or password');
 
-    return user.json;
+    return user.json();
   }
 }
 
