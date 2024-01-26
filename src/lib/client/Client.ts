@@ -9,7 +9,9 @@ class Client {
     private _cnpj: string,
     private _createdAt: Date,
     private _deletedAt?: Date,
-    private _paymentMethods?: ClientPaymentMethodProxy | Promise<PaymentMethod[]>,
+    private _paymentMethods?:
+      | ClientPaymentMethodProxy
+      | Promise<PaymentMethod[]>,
   ) {}
 
   get id(): string {

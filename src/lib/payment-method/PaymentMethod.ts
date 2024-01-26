@@ -1,7 +1,11 @@
-import { Fetch } from "./types";
+import { Fetch } from './types';
 
 class PaymentMethod {
-  public constructor(private _id: number, private _name: string, private _thumbnail: string) {}
+  public constructor(
+    private _id: number,
+    private _name: string,
+    private _thumbnail: string,
+  ) {}
 
   get id(): number {
     return this._id;
@@ -16,11 +20,7 @@ class PaymentMethod {
   }
 
   public static fromFetch(fetch: Fetch): PaymentMethod {
-    return new PaymentMethod(
-      fetch.id,
-      fetch.name,
-      fetch.thumbnail,
-    )
+    return new PaymentMethod(fetch.id, fetch.name, fetch.thumbnail);
   }
 }
 

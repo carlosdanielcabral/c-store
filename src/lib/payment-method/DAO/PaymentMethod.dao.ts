@@ -2,12 +2,10 @@ import Connection from '../../../database/Connection';
 import { Fetch } from '../types';
 
 class PaymentMethodDAO {
-  public constructor(protected _connection: Connection = new Connection()) {
-  }
+  public constructor(protected _connection: Connection = new Connection()) {}
 
   public getById = async (id: number): Promise<Fetch> => {
-    const query =
-      'SELECT * FROM payment_method WHERE id = ?';
+    const query = 'SELECT * FROM payment_method WHERE id = ?';
     const values = [id];
 
     const [result] = await this._connection.execute(query, values);
@@ -16,7 +14,7 @@ class PaymentMethodDAO {
   };
 
   public getAllByClient = async (clientId: string): Promise<Fetch[]> => {
-    const query =  `
+    const query = `
       SELECT pm.*
       FROM payment_method pm
       INNER JOIN client_payment_method cpm
